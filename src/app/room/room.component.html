@@ -1,0 +1,15 @@
+<p> Trying to access room {{name}}</p>
+<div *ngIf="!connected">
+	<p> Username </p>
+	<input [(ngModel)]="username" placeholder="Nombre de jugador" type="text" name="playerName">
+	<button (click)="connect();">Entrar</button>
+</div>
+
+<div *ngIf="connected">
+	<span> <b>{{username}}: </b></span><input [(ngModel)]="message" placeholder="Message" type="text" name="message">
+	<button (click)="sendMessage();">Enviar</button>
+</div>
+
+<h5> Messages </h5>
+<p *ngIf="messages.length == 0"> No messages yet </p>
+<p *ngFor="let message of messages"> <b>{{message.username }}:</b> {{message.text}} </p>
