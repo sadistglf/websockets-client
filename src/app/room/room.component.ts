@@ -28,6 +28,7 @@ export class RoomComponent implements OnInit {
     this.socket.onopen = () => {
       console.log("Websockets connection created!");
       this.connected = true;
+      this.apiService.connected = true;
     }
     // what will happen on message!
     this.socket.onmessage = (event) => {
